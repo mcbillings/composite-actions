@@ -3,7 +3,7 @@ description: 'Generates a string from the given input'
 inputs:
   given_input:
     description: 'The input given'
-    required: false
+    required: true
     default: 'No string provided'
 outputs:
   string:
