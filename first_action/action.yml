@@ -14,7 +14,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: echo "string=${{ inputs.given_input }}" >> $GITHUB_OUTPUT
+    - run: echo "string=${{ inputs.given_input }} not empty" >> $GITHUB_OUTPUT
       shell: bash
       if: ${{ inputs.given_input != '' }}
       
