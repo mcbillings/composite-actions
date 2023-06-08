@@ -15,7 +15,7 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: echo "string=${{ inputs.given_input }} not empty" >> ${{ env.OUTPUT_STRING }}      
+    - run: echo "string=${{ inputs.given_input }} not empty" >> env.OUTPUT_STRING     
       shell: bash
       if: ${{ inputs.given_input != '' }}
       
