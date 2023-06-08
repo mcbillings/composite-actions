@@ -14,8 +14,9 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: echo "string=${{ inputs.given_input }} not empty" >> $GITHUB_OUTPUT   
-      id: given-input
+    env:
+      STRING: not set
+    - run: echo "${{ inputs.given_input }} not empty" >> $STRING
       shell: bash
       if: ${{ inputs.given_input != '' }}
       
@@ -23,4 +24,7 @@ runs:
     - run: echo "string=$DEFAULT_STRING" >> $GITHUB_OUTPUT
       shell: bash
       if: ${{ inputs.given_input == '' }}
+    
+    - run: echo "string=$STRING" >> $GITHUB_OUTPUT
+      shell: bash
       
