@@ -15,6 +15,6 @@ runs:
     - id: step1
       run: |
         echo ${{ inputs.given_input.default }}
-        string=$([ ${{ inputs.given_input }}== ] && echo "No input given" || echo ${{ inputs.given_input }} )
+        string=$([ ${{ inputs.given_input }}== ] && echo "No input given -- empty input" || echo ${{ inputs.given_input }} )
         echo "string=$string" >> $GITHUB_OUTPUT
       shell: bash
