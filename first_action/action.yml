@@ -1,7 +1,7 @@
 name: 'Generate String'
 description: 'Generates a string from the given input'
 env:
-  DEFAULT_INPUT: 'No string provided'
+  DEFAULT_INPUT: No string provided
 inputs:
   given_input:
     description: 'The input given'
@@ -16,9 +16,7 @@ runs:
   steps:
     - id: step1
       run: |
-        echo ${{ env.DEFAULT_INPUT }}
-        default_input=$DEFAULT_INPUT
+        echo $DEFAULT_INPUT
         string=$([ ${{ inputs.given_input }}== ] && echo $default_input || echo ${{ inputs.given_input }} )
-        echo "$string"
         echo "string=$string" >> $GITHUB_OUTPUT
       shell: bash
