@@ -12,5 +12,5 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - run: echo "string=${{ inputs.given_input }}" >> $GITHUB_OUTPUT
+    - run: echo "string=${{ inputs.given_input }} was given" >> $GITHUB_OUTPUT
       shell: bash
