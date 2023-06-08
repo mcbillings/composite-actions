@@ -1,29 +1,17 @@
 name: 'Generate String'
 description: 'Generates a string from the given input'
-env: 
-  DEFAULT_STRING: No string provided
 inputs:
   given_input:
     description: 'The input given'
+    required: true
     required: false
-    default: DEFAULT_STRING
+    default: 'No string provided'
 outputs:
   string:
     description: 'generated string'
-    value: ${{ steps.given-input.outputs.string }}
+    value: ${{ inputs.given_input }}
 runs:
   using: "composite"
   steps:
-    - run: echo "${{ inputs.given_input }} not empty" >> $GITHUB_OUTPUT
+    - run: echo "string=${{ inputs.given_input }}" >> $GITHUB_OUTPUT
       shell: bash
-      if: ${{ inputs.given_input != '' }}
-      
-      #outputting a deafault string if we're given an empty string-- I want empty strings to be treated as no input
-    - run: echo "string=$DEFAULT_STRING" >> $GITHUB_OUTPUT
-      id: given-string
-      shell: bash
-      if: ${{ inputs.given_input == '' }}
-    
-    - run: echo "string=$STRING" >> $GITHUB_OUTPUT
-      shell: bash
-      
