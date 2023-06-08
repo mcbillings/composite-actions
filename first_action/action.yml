@@ -1,17 +1,21 @@
 name: 'Generate String'
 description: 'Generates a string from the given input'
+env:
+  DEFAULT_INPUT: 'No string provided'
 inputs:
   given_input:
     description: 'The input given'
     required: false
-    default: 'No string provided'
+    default: $DEFAULT_INPUT
 outputs:
   string:
     description: 'generated string'
-    value: ${{ if (true): steps.step1.outputs.string }}
+    value: ${{  }}
 runs:
   using: "composite"
   steps:
-    - run: echo "string=${{ inputs.given_input }} was given" >> $GITHUB_OUTPUT
-      id: step1
+    - id: step1
+      run: |
+        string=$(( $inputs.given_input == '' ? $DEFAULT_INPUT : $inputs.given_input ))
+        echo "$string"
       shell: bash
