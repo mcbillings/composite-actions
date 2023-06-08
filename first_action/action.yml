@@ -16,7 +16,7 @@ runs:
   steps:
     - id: step1
       run: |
-        string=$(( $inputs.given_input == '' ? $DEFAULT_INPUT : $inputs.given_input ))
+        string=$(( 1 == 1 ? "1==1" : $inputs.given_input ))
         echo "$string"
         echo "string=$string" >> $GITHUB_OUTPUT
       shell: bash
