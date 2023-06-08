@@ -4,7 +4,7 @@ inputs:
   given_input:
     description: 'The input given'
     required: false
-    default: No input given
+    default: "No input given"
 outputs:
   string:
     description: 'generated string'
@@ -15,6 +15,6 @@ runs:
     - id: step1
       run: |
         echo ${{ inputs.given_input.default }}
-        string=$([ ${{ inputs.given_input }}== ] && echo ${{ inputs.given_input.default }} || echo ${{ inputs.given_input }} )
+        string=$([ ${{ inputs.given_input }}== ] && echo "No input given" || echo ${{ inputs.given_input }} )
         echo "string=$string" >> $GITHUB_OUTPUT
       shell: bash
