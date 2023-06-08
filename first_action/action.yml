@@ -10,7 +10,6 @@ inputs:
 outputs:
   string:
     description: 'generated string'
-    value: ${{  }}
 runs:
   using: "composite"
   steps:
