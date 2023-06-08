@@ -13,8 +13,6 @@ outputs:
     value: ${{ steps.given-input.outputs.string }}
 runs:
   using: "composite"
-  env:
-    STRING: not set
   steps:
     - run: echo "${{ inputs.given_input }} not empty" >> $GITHUB_OUTPUT
       shell: bash
@@ -22,10 +20,10 @@ runs:
       
       #outputting a deafault string if we're given an empty string-- I want empty strings to be treated as no input
     - run: echo "string=$DEFAULT_STRING" >> $GITHUB_OUTPUT
+      id: given-string
       shell: bash
       if: ${{ inputs.given_input == '' }}
     
     - run: echo "string=$STRING" >> $GITHUB_OUTPUT
-      id: given-input
       shell: bash
       
