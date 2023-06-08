@@ -10,13 +10,11 @@ inputs:
 outputs:
   string:
     description: 'generated string'
+    value: ${{ steps.outputs.string }}
 runs:
   using: "composite"
   steps:
-    - run: |
-        echo "string=${{ inputs.given_input }} not empty" >> $GITHUB_OUTPUT
-        echo Input given
-      
+    - run: echo "string=${{ inputs.given_input }} not empty" >> $GITHUB_OUTPUT      
       shell: bash
       if: ${{ inputs.given_input != '' }}
       
