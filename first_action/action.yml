@@ -16,7 +16,7 @@ runs:
   steps:
     - id: step1
       run: |
-        string=$([ 1==1 ] && echo inputs.given_input || echo "NO" )
+        string=$([ 1==1 ] && echo $inputs.given_input || echo "NO" )
         echo "$string"
         echo "string=$string" >> $GITHUB_OUTPUT
       shell: bash
