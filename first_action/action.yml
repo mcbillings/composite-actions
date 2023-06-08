@@ -4,7 +4,7 @@ inputs:
   given_input:
     description: 'The input given'
     required: false
-    default: "No input given"
+    default: No input given
 outputs:
   string:
     description: 'generated string'
