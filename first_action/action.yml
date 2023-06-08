@@ -10,9 +10,8 @@ inputs:
 outputs:
   string:
     description: 'generated string'
-    value: ${{ all-steps.outputs.string }}
+    value: ${{ GITHUB_OUTPUT.string }}
 runs:
-  name: all-steps
   using: "composite"
   steps:
     - run: echo "string=${{ inputs.given_input }} not empty" >> $GITHUB_OUTPUT   
