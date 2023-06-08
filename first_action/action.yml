@@ -13,9 +13,9 @@ outputs:
     value: ${{ steps.given-input.outputs.string }}
 runs:
   using: "composite"
+  env:
+    STRING: not set
   steps:
-    env:
-      STRING: not set
     - run: echo "${{ inputs.given_input }} not empty" >> $GITHUB_OUTPUT
       shell: bash
       if: ${{ inputs.given_input != '' }}
