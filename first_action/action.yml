@@ -11,7 +11,7 @@ inputs:
 outputs:
   string:
     description: 'generated string'
-    value: $OUTPUT_STRING
+    value: ${{ env.OUTPUT_STRING }}
 runs:
   using: "composite"
   steps:
