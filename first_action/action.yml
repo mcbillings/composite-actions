@@ -16,7 +16,7 @@ runs:
   steps:
     env:
       STRING: not set
-    - run: echo "${{ inputs.given_input }} not empty" >> $STRING
+    - run: echo "${{ inputs.given_input }} not empty" >> $GITHUB_OUTPUT
       shell: bash
       if: ${{ inputs.given_input != '' }}
       
@@ -26,5 +26,6 @@ runs:
       if: ${{ inputs.given_input == '' }}
     
     - run: echo "string=$STRING" >> $GITHUB_OUTPUT
+      id: given-input
       shell: bash
       
