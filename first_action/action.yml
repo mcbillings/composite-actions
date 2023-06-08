@@ -16,7 +16,7 @@ runs:
   steps:
     - id: step1
       run: |
-        string=$([ ${{ inputs.given_input }}== ] && echo ${{ env.DEFAULT_INPUT }} || echo ${{ inputs.given_input }} )
+        string=$([ ${{ inputs.given_input }}== ] && echo "Nothing given" || echo ${{ inputs.given_input }} )
         echo "$string"
         echo "string=$string" >> $GITHUB_OUTPUT
       shell: bash
