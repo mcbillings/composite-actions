@@ -8,9 +8,10 @@ inputs:
 outputs:
   string:
     description: 'generated string'
-    value: ${{ runs.outputs.string }}
+    value: ${{ runs.steps.step1.outputs.string }}
 runs:
   using: "composite"
   steps:
     - run: echo "string=${{ inputs.given_input }} was given" >> $GITHUB_OUTPUT
+      id: step1
       shell: bash
